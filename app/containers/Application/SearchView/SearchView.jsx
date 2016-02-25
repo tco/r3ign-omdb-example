@@ -6,6 +6,7 @@ import { connectData }          from 'decorators/index.js';
 
 import {
     isSearching,
+    isSearchedWith,
     search
 } from 'redux/modules/search/search.js';
 
@@ -18,13 +19,13 @@ import {
 const fetchData = (getState, dispatch, location, params) => {
     const state = getState();
 
-    if(!isSearching(state)) {
+    if(!isSearching(state) && !isSearchedWith(state, params.query)) {
         return dispatch(search(params.query));
     }
 
 };
 
-@connectData(fetchData)
+@connectData(fetchData, true)
 @configuredRadium
 @connect(state => ({
     search: state.search
