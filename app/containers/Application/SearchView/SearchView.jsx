@@ -16,7 +16,7 @@ import {
     SearchResults
 } from 'components/index.js';
 
-const fetchData = (getState, dispatch, location, params) => {
+const fetchData = (getState, dispatch, subscribe, location, params) => {
     const state = getState();
 
     if(!isSearching(state) && !isSearchedWith(state, params.query)) {

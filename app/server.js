@@ -103,7 +103,7 @@ app.use((request, response) => {
         } else {
             fetchAllData(
                 renderProps.components,
-                store.getState, store.dispatch,
+                store.getState, store.dispatch, store.subscribe,
                 renderProps.location,
                 renderProps.params
             ).then(() => {

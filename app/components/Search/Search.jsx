@@ -34,9 +34,7 @@ export default class Search extends Component {
     doSearch = (event) => {
         event.preventDefault();
         const query = document.getElementById('q');
-        this.props.search(query.value).then(() => {
-            //query.value = '';
-        });
+        this.props.search(query.value);
     };
 
     render() {

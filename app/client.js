@@ -17,10 +17,10 @@ const client = new ApiClient(),
 function createElement(Component, props) {
     if (Component.fetchInClientOnly) {
         Component.prototype.componentDidMount = () => {
-            Component.fetchData(store.getState, store.dispatch, props.location, props.params);
+            Component.fetchData(store.getState, store.dispatch, store.subscribe, props.location, props.params);
         };
     } else if(Component.fetchData) {
-        Component.fetchData(store.getState, store.dispatch, props.location, props.params);
+        Component.fetchData(store.getState, store.dispatch, store.subscribe, props.location, props.params);
     }
     return React.createElement(Component, props);
 }

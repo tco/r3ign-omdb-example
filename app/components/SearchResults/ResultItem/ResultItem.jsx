@@ -30,11 +30,13 @@ const ResultItem = (props) => {
 
     const loadMeta = (event) => {
         event.preventDefault();
-        props.loadMetaDetails(props.item.imdbID);
+        setTimeout(() => {
+            props.loadMetaDetails(props.item.imdbID);
+        }, 1000);
     };
 
     return (
-        <article style={ resultItemStyle }>
+        <article style={ resultItemStyle } onLoad={ loadMeta }>
             <img style={ imageStyle } src={ props.item.Poster } />
             <h4>{ props.item.Title }</h4>
             {(function renderDetails(details) {
@@ -42,7 +44,7 @@ const ResultItem = (props) => {
                 if(meta) {
                     return <ResultMeta meta={ meta } />;
                 }
-                return <a href="#" onClick={ loadMeta }>Get Details</a>;
+                return 'Loading Details';
             }(props.details))}
 
         </article>
