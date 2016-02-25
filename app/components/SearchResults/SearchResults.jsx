@@ -17,8 +17,8 @@ const SearchResults = (props) => {
         <section style={ searchResultContainerStyle }>
             {(function renderResults(search) {
                 if(search.Search && search.Search.length > 0) {
-                    return search.Search.map((item) => {
-                        return <ResultItem item={ item } />;
+                    return search.Search.map((item, index) => {
+                        return <ResultItem key={ 'item-' + index } item={ item } />;
                     });
                 }
                 return 'No results';
