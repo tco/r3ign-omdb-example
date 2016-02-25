@@ -3,10 +3,9 @@ import configuredRadium         from 'styles/configuredRadium.js';
 
 import {
     StandardPage,
-    Search
+    Search,
+    SearchResults
 } from 'components/index.js';
-
-import SearchResults from './SearchResults/SearchResults.jsx';
 
 @configuredRadium
 export default class Frontpage extends Component {
